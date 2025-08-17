@@ -1,0 +1,39 @@
+@import "_variables";
+@import "~bootstrap/scss/mixins";
+
+.faq {
+  h2 {
+    margin-bottom: 32px;
+  }
+
+  h3 {
+    margin-bottom: 16px;
+  }
+
+  svg {
+    width: 300px;
+  }
+
+  a {
+    text-decoration: underline;
+
+    &:hover {
+      text-decoration: none;
+    }
+  }
+}
+
+.image {
+  width: 120px;
+  padding: 10px 15px;
+  margin-bottom: 40px;
+
+  @include media-breakpoint-up(lg) {
+    width: 190px;
+    padding: 15px 25px;
+  }
+}
+
+.faqWrap {
+  margin-bottom: 48px;
+}

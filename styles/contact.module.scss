@@ -1,0 +1,80 @@
+@import "_variables.scss";
+@import "~bootstrap/scss/mixins";
+
+.contact {
+  h1 {
+    margin-bottom: 0;
+  }
+
+  .contentWrapper {
+    margin-bottom: 80px;
+
+    @include media-breakpoint-up(md) {
+      margin-bottom: 105px;
+    }
+
+    @include media-breakpoint-up(lg) {
+      margin-bottom: 160px;
+    }
+  }
+
+  .contactInfo {
+    padding-right: 0;
+
+    @include media-breakpoint-up(lg) {
+      padding-right: 40px;
+    }
+
+    p {
+      font-size: 18px;
+      line-height: 1.5;
+    }
+  }
+
+  .heading {
+    color: $gray-text;
+    margin-bottom: 24px;
+  }
+
+  .subsection {
+    margin-bottom: 24px;
+
+    &:last-of-type {
+      margin-bottom: 40px;
+    }
+  }
+
+  .label {
+    margin-top: 16px;
+  }
+
+  .required {
+    color: $error;
+  }
+
+  .link {
+    text-decoration: underline;
+
+    &:hover {
+      text-decoration: none;
+    }
+  }
+
+  .contactInput {
+    width: 100%;
+  }
+
+  .contactButton {
+    position: relative;
+    margin-top: 40px;
+
+    svg {
+      vertical-align: sub;
+      margin-left: 6px;
+
+      path {
+        fill: $white;
+      }
+    }
+  }
+}

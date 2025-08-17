@@ -1,0 +1,39 @@
+@import "_variables.scss";
+@import "~bootstrap/scss/mixins";
+
+.bioTile {
+  margin-bottom: 96px;
+  text-align: center;
+
+  @include media-breakpoint-up(sm) {
+    text-align: left;
+  }
+
+  img {
+    margin-bottom: 5px;
+    border-radius: 100%;
+    border: 1px solid $gray-icon;
+  }
+}
+
+.bioTileTextWrap {
+  text-align: left;
+}
+
+.bioTileName {
+  margin-bottom: 0;
+}
+
+.bioTileTitle {
+  margin-bottom: 10px;
+}
+
+.bioTileLarge {
+  img {
+    width: 180px;
+
+    @include media-breakpoint-up(lg) {
+      width: 240px;
+    }
+  }
+}

@@ -1,0 +1,140 @@
+@import "_variables.scss";
+@import "~bootstrap/scss/mixins";
+
+.footer {
+  background-color: $deep-teal;
+  color: $white;
+  padding: 40px 10px;
+
+  @include media-breakpoint-up(lg) {
+    padding: 80px 24px 40px;
+  }
+
+  @include media-breakpoint-up(xl) {
+    padding: 72px 145px 80px 145px;
+  }
+
+  a {
+    color: $white;
+
+    &:hover {
+      color: $white;
+    }
+  }
+}
+
+.innerColumn {
+  flex: 0 1 50%;
+
+  &:nth-child(2) {
+    @include media-breakpoint-up(md) {
+      max-width: 290px;
+    }
+  }
+}
+
+.innerColumnRight {
+  flex: 0 1 50%;
+
+  @include media-breakpoint-up(md) {
+    flex: 0 1 100%;
+  }
+
+  @include media-breakpoint-up(lg) {
+    flex: 0 1 50%;
+  }
+}
+
+.footerNavLink {
+  text-decoration: none;
+  display: block;
+  font-weight: $font-weight-semibold;
+  margin-bottom: 22px;
+  max-width: 100%;
+
+  &:hover {
+    text-decoration: underline;
+  }
+
+  @include media-breakpoint-up(md) {
+    max-width: 160px;
+  }
+}
+
+.address {
+  margin-bottom: 26px;
+}
+
+.phone {
+  text-decoration: none;
+}
+
+.brand {
+  margin-top: 0;
+
+  @include media-breakpoint-up(md) {
+    margin-top: 48px;
+    max-width: 250px;
+  }
+
+  @include media-breakpoint-up(lg) {
+    margin-top: 0;
+  }
+}
+
+.footerLogoWrapper {
+  display: block;
+}
+
+.footerLogo {
+  width: 142px;
+
+  @include media-breakpoint-up(lg) {
+    width: 180px;
+  }
+}
+
+.divider {
+  margin: 16px 0;
+
+  @include media-breakpoint-up(lg) {
+    margin: 24px 0;
+  }
+}
+
+.privacyLinksWrapper {
+  max-width: 100%;
+  max-width: 200px;
+}
+
+.footerLink {
+  display: block;
+  margin-bottom: 15px;
+  font-size: 14px;
+  line-height: 1.4;
+  text-decoration: underline;
+
+  &:last-of-type {
+    margin-bottom: 0;
+  }
+
+  &:hover {
+    text-decoration: none;
+  }
+}
+
+.logoMobile {
+  margin-top: 48px;
+}
+
+.footerEnroll {
+  padding: 20px 10px;
+
+  @include media-breakpoint-up(md) {
+    padding: 40px 24px;
+  }
+}
+
+.ctaWrapper {
+  text-align: right;
+}

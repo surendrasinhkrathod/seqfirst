@@ -1,0 +1,297 @@
+@import "_variables.scss";
+@import "~bootstrap/scss/mixins";
+
+.header {
+  padding: 12px 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid $gray-keyline;
+
+  @include media-breakpoint-up(lg) {
+    padding: 24px 20px 24px 28px;
+    border-bottom: 1px solid transparent;
+  }
+}
+
+.navBrand {
+  flex-grow: 1;
+
+  svg {
+    width: 115px;
+
+    @include media-breakpoint-up(lg) {
+      width: 180px;
+    }
+  }
+}
+
+.headerEnroll {
+  padding: 15px 10px 15px 5px;
+
+  @include media-breakpoint-up(md) {
+    padding: 15px 10px 15px 20px;
+  }
+
+}
+
+.headerEnrollLogo {
+  svg {
+    width: 120px;
+  }
+}
+
+.navType {
+  color: $gray-text-light;
+  font-size: 14px;
+
+  @media (min-width: 768px) {
+    font-size: 16px;
+  }
+
+  &::before {
+    content: " | ";
+    margin: 0 5px 0 5px;
+  }
+}
+
+.mobileNavButton {
+  border: none;
+  padding: 10px;
+  margin-left: 16px;
+  transition: all ease-in-out 0.4s;
+
+  &:hover,
+  &:focus {
+    background-color: $blue-ivy;
+    border: none;
+    box-shadow: none;
+
+    .mobileNavButtonMenu,
+    .mobileNavButtonClose {
+      > path {
+        fill: $white;
+      }
+    }
+  }
+
+  &[aria-expanded="true"] {
+    .mobileNavButtonClose {
+      opacity: 1;
+      display: inline-block;
+
+    }
+
+    .mobileNavButtonMenu {
+      opacity: 0;
+      display: none;
+    }
+  }
+}
+
+.mobileNavButtonIcon {
+  background-image: none;
+  width: 24px;
+  height: 24px;
+}
+
+.mobileNavButtonMenu {
+  display: inline-block;
+  opacity: 1;
+  transition: all ease-in-out 0.4s;
+}
+
+.mobileNavButtonClose {
+  opacity: 0;
+  display: none;
+  transition: all ease-in-out 0.4s;
+}
+
+.navigation {
+  position: relative;
+  flex-grow: 1;
+  margin-left: -12px;
+  margin-right: -12px;
+  border-top: 1px solid $gray-keyline;
+  margin-top: 10px;
+
+  @include media-breakpoint-up(lg) {
+    margin-top: 0;
+    border-top: none;
+  }
+
+  a {
+    display: block;
+    color: $gray-text;
+    font-weight: $font-weight-normal;
+    padding: 10px 16px;
+    font-size: 16px;
+    position: relative;
+    text-decoration: none;
+    border-left: 4px solid transparent;
+
+    &:hover {
+      border-bottom: none;
+      border-left: 4px solid $blue-ivy;
+      background-color: $blue-ivy-hover;
+      color: $blue-ivy-dark;
+
+      .dropdownCaret {
+        > path {
+          fill: $blue-ivy;
+        }
+      }
+    }
+
+    @include media-breakpoint-up(lg) {
+      display: flex;
+      font-weight: $font-weight-semibold;
+      border-bottom: 4px solid transparent;
+      border-left: none;
+      color: $gray-text-light;
+
+      &:hover {
+        text-decoration: none;
+        border-bottom: 4px solid $blue-ivy-disabled;
+        border-left: none;
+        color: $blue-ivy-dark;
+        background-color: transparent;
+
+        .dropdownCaret {
+          > path {
+            fill: $blue-ivy;
+          }
+        }
+      }
+    }
+
+    &.dropdownMenuItem {
+      border-left: 4px solid transparent;
+
+      &:hover {
+        background-color: $blue-ivy-hover;
+        border-left: 4px solid $blue-ivy;
+        border-bottom: none;
+        margin-bottom: 4px;
+      }
+
+      &.active {
+        border-left: 4px solid $blue-ivy;
+        border-bottom: none;
+        color: $deep-teal;
+        background-color: $blue-ivy-hover;
+        margin-bottom: 4px;
+      }
+    }
+  }
+
+  .active {
+    border-left: 4px solid $blue-ivy;
+    color: $deep-teal;
+    background-color: $blue-ivy-hover;
+
+    @include media-breakpoint-up(lg) {
+      border-left: none;
+      border-bottom: 4px solid $blue-ivy;
+      background-color: transparent;
+    }
+  }
+
+  .dropdownCaret {
+    display: inline-block;
+    width: 25px;
+    height: 24px;
+    position: relative;
+    top: 0;
+    margin-left: -2px;
+    scale: 1.2;
+  }
+}
+
+.dropdown {
+  position: relative;
+}
+
+.dropdownMenu {
+  border: 1px solid $gray-keyline;
+  border-radius: 4px;
+  box-shadow: 0px 3px 12px 0px rgba(0, 0, 0, 0.18);
+}
+
+.dropdownMenuItem {
+  padding: 14px 16px;
+  display: block;
+  color: $gray-text;
+  border-left: 4px solid transparent;
+  text-decoration: none;
+
+  &:hover {
+    background-color: $blue-ivy-hover;
+    border-left: 4px solid $blue-ivy;
+    text-decoration: none;
+    color: $deep-teal;
+
+    svg > path {
+      fill: $blue-ivy-dark;
+    }
+  }
+}
+
+.utility {
+  position: relative;
+  font-size: 14px;
+  flex-grow: 0;
+
+  a {
+    color: $blue-ivy-dark;
+    text-decoration: none;
+
+    &:hover {
+      text-decoration: underline;
+      $color: $deep-teal;
+    }
+  }
+
+  .loginCaret {
+    position: relative;
+    top: -2px;
+
+    > path {
+      fill: $blue-ivy-dark;
+    }
+  }
+
+  .dropdownMenu {
+    width: 220px;
+  }
+
+  .dropdownMenuItem {
+    color: $gray-text;
+
+    &:hover {
+      color: $deep-teal;
+      text-decoration: none;
+    }
+  }
+}
+
+.utilityMobile {
+  border-top: 1px solid $gray-keyline;
+  padding: 10px 0;
+  margin-top: 10px;
+
+  a {
+    &:hover {
+      color: $deep-teal;
+
+      svg > path {
+        fill: $blue-ivy;
+      }
+    }
+  }
+}
+
+.loginIcon {
+  vertical-align: bottom;
+  margin-right: 8px;
+}

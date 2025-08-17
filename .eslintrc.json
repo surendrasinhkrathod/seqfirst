@@ -1,0 +1,41 @@
+{
+  "extends": [
+      "next/core-web-vitals",
+      "eslint:recommended",
+      "plugin:@typescript-eslint/recommended",
+      "prettier",
+      "plugin:react/recommended",
+      "plugin:prettier/recommended"
+
+  ],
+  "parser": "@typescript-eslint/parser",
+  "parserOptions": {
+      "ecmaVersion": "latest",
+      "sourceType": "module"
+  },
+  "plugins": [
+      "@typescript-eslint",
+      "react",
+      "prettier"
+  ],
+  "rules": {
+    "prettier/prettier": 0,
+    // There are times you have to use any to walkaround third-party code
+    "@typescript-eslint/no-explicit-any": "warn",
+    // There is no harm in defining explicit type even if its inferrable
+    "@typescript-eslint/no-inferrable-types": "off",
+    // When Next.js export is used, you cannot use <Image /> component
+    "@next/next/no-img-element": "off",
+    // So we can ignore third-party related type issues
+    "@typescript-eslint/ban-ts-ignore": "off",
+    // So we can ignore third-party related type issues
+    "@typescript-eslint/ban-ts-comment": "off",
+    // So we can create a placeholder function definition like:
+    // const onClick = {};
+    "@typescript-eslint/no-empty-interface": "off",
+    // So we can document funciton args even if you don’t use them
+    "@typescript-eslint/no-unused-vars": "warn",
+    // This is critical to prevent infinite loop inside useEffect
+    "react-hooks/exhaustive-deps": "error"
+  }
+}

@@ -1,0 +1,28 @@
+@import "_variables.scss";
+@import "~bootstrap/scss/mixins";
+
+.partners {
+  margin: 60px 0;
+
+  h1 {
+    margin-bottom: 32px;
+  }
+}
+
+.partnersWrap {
+  .logo {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 160px;
+    margin-bottom: 32px;
+    border: 1px solid $gray-keyline;
+    border-radius: $media-border-radius;
+    background-color: $white;
+
+    img {
+      border-radius: $media-border-radius;
+      padding: 2px;
+    }
+  }
+}

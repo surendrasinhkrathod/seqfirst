@@ -1,0 +1,55 @@
+@import "_variables.scss";
+@import "~bootstrap/scss/mixins";
+
+.resourceTile {
+  margin: 12px 0 32px;
+  border-radius: $media-border-radius;
+  border: 1px solid $gray-keyline;
+  text-align: center;
+
+  a {
+    font-weight: $font-weight-semibold;
+
+    svg {
+      position: relative;
+      top: -2px;
+    }
+  }
+}
+
+.resourceTitle {
+  min-height: calc(24px * 1.33);
+
+  @include media-breakpoint-up(lg) {
+    min-height: calc(24px * 1.33 * 2);
+  }
+
+  @include media-breakpoint-up(xl) {
+    min-height: initial;
+  }
+}
+
+.resourceImageWrap {
+  width: 100%;
+  height: 80px;
+  border-top-left-radius: $media-border-radius;
+  border-top-right-radius: $media-border-radius;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  border-bottom: 1px solid $gray-keyline;
+}
+
+.resourceTextWrap {
+  padding: 24px 32px 30px;;
+}
+
+.resourceBody {
+  @include media-breakpoint-up(md) {
+    min-height: calc(18px * 1.33 * 2);
+  }
+
+  @include media-breakpoint-up(lg) {
+    min-height: calc(18px * 1.33 * 2);
+  }
+}

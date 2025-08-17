@@ -1,0 +1,56 @@
+@import "_variables.scss";
+@import "~bootstrap/scss/mixins";
+
+.TileHeadline {
+  margin: 10px 0 0;
+}
+
+.videoTileWraper {
+  display: grid;
+  margin-top: 64px;
+  background-color: $gray-text;
+  border-radius: $media-border-radius;
+
+  svg {
+    transform: scale(0.75);
+  }
+}
+
+.videoTileItem {
+  grid-area: 1 / 1 / 2 / 2;
+  place-self: center;
+  cursor: pointer;
+  opacity: 0.4;
+  border-radius: $media-border-radius;
+}
+
+.icon {
+  background-color: $bright-yellow-80;
+  width: 72px;
+  height: 72px;
+  border-radius: 100%;
+  grid-area: 1 / 1 / 2 / 2;
+  place-self: center;
+  cursor: pointer;
+  position: relative;
+
+  &:hover {
+    &::after {
+      content: '';
+      display: inline-block;
+      position: absolute;
+      width: 72px;
+      height: 72px;
+      border-radius: 100%;
+      border: 2px solid white;
+      outline: 2px solid white;
+    }
+  }
+
+  svg {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+}

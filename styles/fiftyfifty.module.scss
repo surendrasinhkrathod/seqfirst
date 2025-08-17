@@ -1,0 +1,23 @@
+@import "_variables.scss";
+@import "~bootstrap/scss/mixins";
+
+.fiftyfifty {
+  text-align: center;
+
+ img {
+  border-radius: $media-border-radius;
+  width: 100%;
+
+  @include media-breakpoint-up(sm) {
+    max-width: 92%;
+  }
+ }
+}
+
+.fiftyfiftyBody {
+  p,
+  ul {
+    font-size: 18px;
+    line-height: 1.55;
+  }
+}

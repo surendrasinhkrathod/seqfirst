@@ -1,0 +1,1017 @@
+@import '_variables.scss';
+@import '_styleguide.scss';
+@import "~bootstrap/scss/mixins";
+
+body {
+  background-color: $white;
+}
+
+.toast {
+  width: 92%;
+  max-width: 475px;
+  margin: 22px 16px;
+  background-color: $deep-teal;
+  color: $white;
+  padding: 18px 15px 18px 75px;
+  border: none;
+  box-shadow: 0px 3px 12px rgba(0, 0, 0, 0.18);
+  border-radius: 4px;
+  right: 0;
+
+  @media (min-width: 768px) {
+    width: 475px;
+    margin: 0 32px 32px 0;
+  }
+
+  &::before {
+    content: '';
+    background-image: url('/img/icon-check-circle.svg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    display: inline-block;
+    width: 28px;
+    height: 28px;
+    position: absolute;
+    left: 20px;
+    top: 16px;
+  }
+
+  &-body {
+    padding: 0;
+  }
+
+  .btn-close {
+    filter: brightness(1) invert(1);
+    opacity: 1;
+
+    &:hover {
+      background-color: transparent;
+      border: none;
+    }
+  }
+}
+
+html,
+body,
+#__next {
+  height: calc(100vh - $header-nav-height);
+  position: relative;
+}
+
+.page-wrap {
+  @include media-breakpoint-up(sm) {
+    min-height: 100%;
+    margin-bottom: $footer-nav-height * -1;
+
+    &::after {
+      content: '';
+      display: block;
+      height: $footer-nav-height;
+
+      @include media-breakpoint-up(lg) {
+        height: $footer-nav-height-lg;
+      }
+
+      @include media-breakpoint-up(xl) {
+        height: $footer-nav-height;
+      }
+    }
+  }
+
+  &--enroll {
+    min-height: 100%;
+    margin-bottom: $footer-enroll-nav-height-mobile * -1;
+
+    &::after {
+      content: '';
+      display: block;
+      height: $footer-enroll-nav-height-mobile;
+    }
+  }
+}
+
+section:first-of-type {
+  @include media-breakpoint-up(xs) {
+    margin-top: 64px;
+  }
+
+  @include media-breakpoint-up(sm) {
+    margin-top: 106px;
+  }
+
+  @include media-breakpoint-up(xl) {
+    margin-top: 160px;
+  }
+
+  &.standard {
+    margin-top: 0;
+    margin-bottom: 80px;
+
+    @include media-breakpoint-up(md) {
+      margin-bottom: 104px;
+    }
+
+    @include media-breakpoint-up(lg) {
+      margin-bottom: 160px;
+    }
+  }
+}
+
+section:last-of-type {
+  padding-bottom: 80px;
+
+  @include media-breakpoint-up(md) {
+    padding-bottom: 104px;
+  }
+
+  @include media-breakpoint-up(lg) {
+    padding-bottom: 160px;
+  }
+}
+
+section.negative:first-of-type {
+  @include media-breakpoint-up(xs) {
+    margin-top: -64px;
+  }
+
+  @include media-breakpoint-up(sm) {
+    margin-top: -106px;
+  }
+
+  @include media-breakpoint-up(xl) {
+    margin-top: -160px;
+  }
+}
+
+.sectionBlueLeft {
+  $curve-height: 160px;
+  $curve-radius: 160px;
+
+  position: relative;
+  padding-top: 1px;
+  background-color: $blue-ivy-10;
+
+  &::before {
+    content: '';
+    position: absolute;
+    width: 100%;
+    top: -$curve-height;
+    background-color: $blue-ivy-10;
+  }
+
+  @include media-breakpoint-up(xs) {
+    padding-bottom: calc(($curve-height / 2.5) * 2);
+
+    &::before {
+      top: calc((-1 * $curve-height) / 2.5);
+      height: calc(($curve-height / 2.5));
+      border-top-left-radius: calc($curve-radius / 2.5);
+    }
+  }
+
+  @include media-breakpoint-up(md) {
+    padding-bottom: calc(($curve-height / 1.5) * 2);
+
+    &::before {
+      top: calc((-1 * $curve-height) / 1.5);
+      height: calc(($curve-height / 1.5));
+      border-top-left-radius: calc($curve-radius / 1.5);
+    }
+  }
+
+  @include media-breakpoint-up(lg) {
+    padding-bottom: calc(($curve-height / 1) * 2);
+
+    &::before {
+      top: -$curve-height;
+      height: $curve-height;
+      border-top-left-radius: $curve-radius;
+    }
+  }
+}
+
+.sectionBlueRight {
+  $curve-height: 160px;
+  $curve-radius: 160px;
+
+  position: relative;
+  padding-top: 1px;
+  background-color: $blue-ivy-10;
+
+  &::before {
+    content: '';
+    background-color: $blue-ivy-10;
+    width: 100%;
+    position: absolute;
+    top: -$curve-height;
+  }
+
+  @include media-breakpoint-up(xs) {
+    padding-bottom: calc(($curve-height / 2.5) * 2);
+
+    &::before {
+      top: calc((-1 * $curve-height) / 2.5);
+      height: calc(($curve-height / 2.5));
+      border-top-right-radius: calc($curve-radius / 2.5);
+    }
+  }
+
+  @include media-breakpoint-up(md) {
+    padding-bottom: calc(($curve-height / 1.5) * 2);
+
+    &::before {
+      top: calc((-1 * $curve-height) / 1.5);
+      height: calc(($curve-height / 1.5));
+      border-top-right-radius: calc($curve-radius / 1.5);
+    }
+  }
+
+  @include media-breakpoint-up(lg) {
+    padding-bottom: calc(($curve-height / 1) * 2);
+
+    &::before {
+      top: -$curve-height;
+      height: $curve-height;
+      border-top-right-radius: $curve-radius;
+    }
+  }
+}
+
+.sectionWhiteLeft {
+  $curve-height: 160px;
+  $curve-radius: 160px;
+
+  position: relative;
+  padding-top: 1px;
+  background-color: $white;
+
+  &::before {
+    content: '';
+    position: absolute;
+    width: 100%;
+    top: -$curve-height;
+    background-color: $white;
+  }
+
+  @include media-breakpoint-up(xs) {
+    padding-bottom: calc(($curve-height / 2.5) * 2);
+
+    &::before {
+      top: calc((-1 * $curve-height) / 2.5);
+      height: calc(($curve-height / 2.5));
+      border-top-left-radius: calc($curve-radius / 2.5);
+    }
+  }
+
+  @include media-breakpoint-up(md) {
+    padding-bottom: calc(($curve-height / 1.5) * 2);
+
+    &::before {
+      top: calc((-1 * $curve-height) / 1.5);
+      height: calc(($curve-height / 1.5));
+      border-top-left-radius: calc($curve-radius / 1.5);
+    }
+  }
+
+  @include media-breakpoint-up(lg) {
+    padding-bottom: calc(($curve-height / 1) * 2);
+
+    &::before {
+      top: -$curve-height;
+      height: $curve-height;
+      border-top-left-radius: $curve-radius;
+    }
+  }
+}
+
+.sectionWhiteRight {
+  $curve-height: 160px;
+  $curve-radius: 160px;
+
+  position: relative;
+  padding-top: 1px;
+  background-color: $white;
+
+  &::before {
+    content: '';
+    background-color: $white;
+    width: 100%;
+    position: absolute;
+    top: -$curve-height;
+  }
+
+  @include media-breakpoint-up(xs) {
+    padding-bottom: calc(($curve-height / 2.5) * 2);
+
+    &::before {
+      top: calc((-1 * $curve-height) / 2.5);
+      height: calc(($curve-height / 2.5));
+      border-top-right-radius: calc($curve-radius / 2.5);
+    }
+  }
+
+  @include media-breakpoint-up(md) {
+    padding-bottom: calc(($curve-height / 1.5) * 2);
+
+    &::before {
+      top: calc((-1 * $curve-height) / 1.5);
+      height: calc(($curve-height / 1.5));
+      border-top-right-radius: calc($curve-radius / 1.5);
+    }
+  }
+
+  @include media-breakpoint-up(lg) {
+    padding-bottom: calc(($curve-height / 1) * 2);
+
+    &::before {
+      top: -$curve-height;
+      height: $curve-height;
+      border-top-right-radius: $curve-radius;
+    }
+  }
+}
+
+.sectionBlueDoubleLeft {
+  $curve-height: 160px;
+  $curve-radius: 160px;
+
+  position: relative;
+  padding-top: 1px;
+  background-color: $blue-ivy-10;
+
+  &::before {
+    content: '';
+    background-color: $blue-ivy-20;
+    width: 100%;
+    position: absolute;
+    top: -$curve-height;
+  }
+
+  &::after {
+    content: '';
+    background-color: $blue-ivy-10;
+    width: 100%;
+    position: absolute;
+    top: -$curve-height;
+  }
+
+  @include media-breakpoint-up(xs) {
+    padding-bottom: calc(($curve-height / 2.5) * 2);
+
+    &::before {
+      top: calc((-1 * $curve-height) / 2.5);
+      height: calc(($curve-height / 2.5));
+      border-top-left-radius: calc($curve-radius * 2);
+    }
+
+    &::after {
+      top: calc((-1 * $curve-height) / 2.5);
+      height: calc(($curve-height / 2.5) - 14px);
+      border-top-left-radius: calc($curve-radius);
+      transform: translateY(14px);
+    }
+
+    &--enroll {
+      top: 80px;
+      margin-bottom: 80px;
+    }
+  }
+
+  @include media-breakpoint-up(md) {
+    padding-bottom: calc(($curve-height / 1.5) * 2);
+
+    &::before {
+      top: calc((-1 * $curve-height) / 1.5);
+      height: calc(($curve-height / 1.5));
+      border-top-left-radius: calc($curve-radius);
+    }
+
+    &::after {
+      top: calc((-1 * $curve-height) / 1.5);
+      height: calc(($curve-height / 1.5) - 14px);
+      border-top-left-radius: calc($curve-radius);
+      transform: translateY(14px);
+    }
+
+    &--enroll {
+      top: 104px;
+      margin-bottom: 104px;
+    }
+  }
+
+  @include media-breakpoint-up(lg) {
+    padding-bottom: calc(($curve-height / 1) * 2);
+
+    &::before {
+      top: calc((-1 * $curve-height) / 1);
+      height: $curve-height;
+      border-top-left-radius: $curve-radius;
+    }
+
+    &::after {
+      top: calc((-1 * $curve-height) / 1);
+      height: $curve-height - 14px;
+      border-top-left-radius: $curve-radius;
+      transform: translateY(14px);
+    }
+
+    &--enroll {
+      top: 160px;
+      margin-bottom: 160px;
+    }
+  }
+}
+
+.sectionBlueDoubleRight {
+  $curve-height: 160px;
+  $curve-radius: 160px;
+
+  position: relative;
+  padding-top: 1px;
+  background-color: $blue-ivy-10;
+
+  &::before {
+    content: '';
+    background-color: $blue-ivy-20;
+    width: 100%;
+    position: absolute;
+    top: -$curve-height;
+  }
+
+  &::after {
+    content: '';
+    background-color: $blue-ivy-10;
+    width: 100%;
+    position: absolute;
+    top: -$curve-height;
+  }
+
+  @include media-breakpoint-up(xs) {
+    padding-bottom: calc(($curve-height / 2.5) * 2);
+
+    &::before {
+      top: calc((-1 * $curve-height) / 2.5);
+      height: calc(($curve-height / 2.5));
+      border-top-right-radius: calc($curve-radius * 2);
+    }
+
+    &::after {
+      top: calc((-1 * $curve-height) / 2.5);
+      height: calc(($curve-height / 2.5) - 14px);
+      border-top-right-radius: calc($curve-radius);
+      transform: translateY(14px);
+    }
+  }
+
+  @include media-breakpoint-up(md) {
+    padding-bottom: calc(($curve-height / 1.5) * 2);
+
+    &::before {
+      top: calc((-1 * $curve-height) / 1.5);
+      height: calc(($curve-height / 1.5));
+      border-top-right-radius: calc($curve-radius);
+    }
+
+    &::after {
+      top: calc((-1 * $curve-height) / 1.5);
+      height: calc(($curve-height / 1.5) - 14px);
+      border-top-right-radius: calc($curve-radius);
+      transform: translateY(14px);
+    }
+  }
+
+  @include media-breakpoint-up(lg) {
+    padding-bottom: calc(($curve-height / 1) * 2);
+
+    &::before {
+      top: calc((-1 * $curve-height) / 1);
+      height: $curve-height;
+      border-top-right-radius: $curve-radius;
+    }
+
+    &::after {
+      top: calc((-1 * $curve-height) / 1);
+      height: $curve-height - 14px;
+      border-top-right-radius: $curve-radius;
+      transform: translateY(14px);
+    }
+  }
+}
+
+.sectionWhiteDoubleLeft {
+  $curve-height: 160px;
+  $curve-radius: 160px;
+
+  position: relative;
+  padding-top: 1px;
+  background-color: $white;
+
+  &::before {
+    content: '';
+    background-color: $blue-ivy-20;
+    width: 100%;
+    position: absolute;
+    top: -$curve-height;
+  }
+
+  &::after {
+    content: '';
+    background-color: $white;
+    width: 100%;
+    position: absolute;
+    top: -$curve-height;
+  }
+
+  @include media-breakpoint-up(xs) {
+    padding-bottom: calc(($curve-height / 2.5) * 2);
+
+    &::before {
+      top: calc((-1 * $curve-height) / 2.5);
+      height: calc(($curve-height / 2.5));
+      border-top-left-radius: calc($curve-radius * 2);
+    }
+
+    &::after {
+      top: calc((-1 * $curve-height) / 2.5);
+      height: calc(($curve-height / 2.5) - 14px);
+      border-top-left-radius: calc($curve-radius);
+      transform: translateY(14px);
+    }
+  }
+
+  @include media-breakpoint-up(md) {
+    padding-bottom: calc(($curve-height / 2.5) * 2);
+    &::before {
+      top: calc((-1 * $curve-height) / 1.5);
+      height: calc(($curve-height / 1.5));
+      border-top-left-radius: calc($curve-radius);
+    }
+
+    &::after {
+      top: calc((-1 * $curve-height) / 1.5);
+      height: calc(($curve-height / 1.5) - 14px);
+      border-top-left-radius: calc($curve-radius);
+      transform: translateY(14px);
+    }
+  }
+
+  @include media-breakpoint-up(lg) {
+    &::before {
+      top: calc((-1 * $curve-height) / 1);
+      height: $curve-height;
+      border-top-left-radius: $curve-radius;
+    }
+
+    &::after {
+      top: calc((-1 * $curve-height) / 1);
+      height: $curve-height - 14px;
+      border-top-left-radius: $curve-radius;
+      transform: translateY(14px);
+    }
+  }
+}
+
+.sectionWhiteDoubleRight {
+  $curve-height: 160px;
+  $curve-radius: 160px;
+
+  position: relative;
+  padding-top: 1px;
+  background-color: $white;
+
+  &::before {
+    content: '';
+    background-color: $blue-ivy-20;
+    width: 100%;
+    position: absolute;
+    top: -$curve-height;
+  }
+
+  &::after {
+    content: '';
+    background-color: $white;
+    width: 100%;
+    position: absolute;
+    top: -$curve-height;
+  }
+
+  @include media-breakpoint-up(xs) {
+    padding-bottom: calc(($curve-height / 2.5) * 2);
+
+    &::before {
+      top: calc((-1 * $curve-height) / 2.5);
+      height: calc(($curve-height / 2.5));
+      border-top-right-radius: calc($curve-radius * 2);
+    }
+
+    &::after {
+      top: calc((-1 * $curve-height) / 2.5);
+      height: calc(($curve-height / 2.5) - 14px);
+      border-top-right-radius: calc($curve-radius);
+      transform: translateY(14px);
+    }
+  }
+
+  @include media-breakpoint-up(md) {
+    padding-bottom: calc(($curve-height / 1.5) * 2);
+
+    &::before {
+      top: calc((-1 * $curve-height) / 1.5);
+      height: calc(($curve-height / 1.5));
+      border-top-right-radius: calc($curve-radius);
+    }
+
+    &::after {
+      top: calc((-1 * $curve-height) / 1.5);
+      height: calc(($curve-height / 1.5) - 14px);
+      border-top-right-radius: calc($curve-radius);
+      transform: translateY(14px);
+    }
+  }
+
+  @include media-breakpoint-up(lg) {
+    padding-bottom: calc(($curve-height / 1) * 2);
+
+    &::before {
+      top: calc((-1 * $curve-height) / 1);
+      height: $curve-height;
+      border-top-right-radius: $curve-radius;
+    }
+
+    &::after {
+      top: calc((-1 * $curve-height) / 1);
+      height: $curve-height - 14px;
+      border-top-right-radius: $curve-radius;
+      transform: translateY(14px);
+    }
+  }
+}
+
+.sectionWhiteBlueDoubleLeft {
+  $curve-height: 160px;
+  $curve-radius: 160px;
+
+  position: relative;
+  padding-top: 1px;
+  background-color: $white;
+
+  &::before {
+    content: '';
+    background-color: $blue-ivy-20;
+    width: 100%;
+    position: absolute;
+    top: -$curve-height;
+  }
+
+  &::after {
+    content: '';
+    background-color: $white;
+    width: 100%;
+    position: absolute;
+    top: -$curve-height;
+  }
+
+  @include media-breakpoint-up(xs) {
+    padding-bottom: calc(($curve-height / 2.5) * 2);
+
+    &::before {
+      top: calc((-1 * $curve-height) / 2.5);
+      height: calc(($curve-height / 2.5));
+      border-top-left-radius: calc($curve-radius * 2);
+    }
+
+    &::after {
+      top: calc((-1 * $curve-height) / 2.5);
+      height: calc(($curve-height / 2.5) - 14px);
+      border-top-left-radius: calc($curve-radius);
+      transform: translateY(14px);
+    }
+  }
+
+  @include media-breakpoint-up(md) {
+    padding-bottom: calc(($curve-height / 2.5) * 2);
+    &::before {
+      top: calc((-1 * $curve-height) / 1.5);
+      height: calc(($curve-height / 1.5));
+      border-top-left-radius: calc($curve-radius);
+    }
+
+    &::after {
+      top: calc((-1 * $curve-height) / 1.5);
+      height: calc(($curve-height / 1.5) - 14px);
+      border-top-left-radius: calc($curve-radius);
+      transform: translateY(14px);
+    }
+  }
+
+  @include media-breakpoint-up(lg) {
+    &::before {
+      top: calc((-1 * $curve-height) / 1);
+      height: $curve-height;
+      border-top-left-radius: $curve-radius;
+    }
+
+    &::after {
+      top: calc((-1 * $curve-height) / 1);
+      height: $curve-height - 14px;
+      border-top-left-radius: $curve-radius;
+      transform: translateY(14px);
+    }
+  }
+}
+
+.sectionWhiteBlueDoubleRight {
+  $curve-height: 160px;
+  $curve-radius: 160px;
+
+  position: relative;
+  padding-top: 1px;
+  background-color: $white;
+
+  &::before {
+    content: '';
+    background-color: $blue-ivy-80;
+    width: 100%;
+    position: absolute;
+    top: -$curve-height;
+  }
+
+  &::after {
+    content: '';
+    background-color: $white;
+    width: 100%;
+    position: absolute;
+    top: -$curve-height;
+  }
+
+  @include media-breakpoint-up(xs) {
+    padding-bottom: calc(($curve-height / 2.5) * 2);
+
+    &::before {
+      top: calc((-1 * $curve-height) / 2.5);
+      height: calc(($curve-height / 2.5));
+      border-top-right-radius: calc($curve-radius * 2);
+    }
+
+    &::after {
+      top: calc((-1 * $curve-height) / 2.5);
+      height: calc(($curve-height / 2.5) - 14px);
+      border-top-right-radius: calc($curve-radius);
+      transform: translateY(14px);
+    }
+  }
+
+  @include media-breakpoint-up(md) {
+    padding-bottom: calc(($curve-height / 1.5) * 2);
+
+    &::before {
+      top: calc((-1 * $curve-height) / 1.5);
+      height: calc(($curve-height / 1.5));
+      border-top-right-radius: calc($curve-radius);
+    }
+
+    &::after {
+      top: calc((-1 * $curve-height) / 1.5);
+      height: calc(($curve-height / 1.5) - 14px);
+      border-top-right-radius: calc($curve-radius);
+      transform: translateY(14px);
+    }
+  }
+
+  @include media-breakpoint-up(lg) {
+    padding-bottom: calc(($curve-height / 1) * 2);
+
+    &::before {
+      top: calc((-1 * $curve-height) / 1);
+      height: $curve-height;
+      border-top-right-radius: $curve-radius;
+    }
+
+    &::after {
+      top: calc((-1 * $curve-height) / 1);
+      height: $curve-height - 14px;
+      border-top-right-radius: $curve-radius;
+      transform: translateY(14px);
+    }
+  }
+}
+
+.sectionWhiteYellowDoubleLeft {
+  $curve-height: 160px;
+  $curve-radius: 160px;
+
+  position: relative;
+  padding-top: 1px;
+  background-color: $white;
+
+  &::before {
+    content: '';
+    background-color: $bright-yellow-60;
+    width: 100%;
+    position: absolute;
+    top: -$curve-height;
+  }
+
+  &::after {
+    content: '';
+    background-color: $white;
+    width: 100%;
+    position: absolute;
+    top: -$curve-height;
+  }
+
+  @include media-breakpoint-up(xs) {
+    padding-bottom: calc(($curve-height / 2.5) * 2);
+
+    &::before {
+      top: calc((-1 * $curve-height) / 2.5);
+      height: calc(($curve-height / 2.5));
+      border-top-left-radius: calc($curve-radius * 2);
+    }
+
+    &::after {
+      top: calc((-1 * $curve-height) / 2.5);
+      height: calc(($curve-height / 2.5) - 14px);
+      border-top-left-radius: calc($curve-radius);
+      transform: translateY(14px);
+    }
+  }
+
+  @include media-breakpoint-up(md) {
+    padding-bottom: calc(($curve-height / 1.5) * 2);
+    &::before {
+      top: calc((-1 * $curve-height) / 1.5);
+      height: calc(($curve-height / 1.5));
+      border-top-left-radius: calc($curve-radius);
+    }
+
+    &::after {
+      top: calc((-1 * $curve-height) / 1.5);
+      height: calc(($curve-height / 1.5) - 14px);
+      border-top-left-radius: calc($curve-radius);
+      transform: translateY(14px);
+    }
+  }
+
+  @include media-breakpoint-up(lg) {
+    padding-bottom: calc(($curve-height / 1) * 2);
+
+    &::before {
+      top: calc((-1 * $curve-height) / 1);
+      height: $curve-height;
+      border-top-left-radius: $curve-radius;
+    }
+
+    &::after {
+      top: calc((-1 * $curve-height) / 1);
+      height: $curve-height - 14px;
+      border-top-left-radius: $curve-radius;
+      transform: translateY(14px);
+    }
+  }
+}
+
+.sectionWhiteYellowDoubleRight {
+  $curve-height: 160px;
+  $curve-radius: 160px;
+
+  position: relative;
+  padding-top: 1px;
+  background-color: $white;
+
+  &::before {
+    content: '';
+    background-color: $bright-yellow-60;
+    width: 100%;
+    position: absolute;
+    top: -$curve-height;
+  }
+
+  &::after {
+    content: '';
+    background-color: $white;
+    width: 100%;
+    position: absolute;
+    top: -$curve-height;
+  }
+
+  @include media-breakpoint-up(xs) {
+    padding-bottom: calc(($curve-height / 2.5) * 2);
+
+    &::before {
+      top: calc((-1 * $curve-height) / 2.5);
+      height: calc(($curve-height / 2.5));
+      border-top-right-radius: calc($curve-radius * 2);
+    }
+
+    &::after {
+      top: calc((-1 * $curve-height) / 2.5);
+      height: calc(($curve-height / 2.5) - 14px);
+      border-top-right-radius: calc($curve-radius);
+      transform: translateY(14px);
+    }
+  }
+
+  @include media-breakpoint-up(md) {
+    padding-bottom: calc(($curve-height / 1.5) * 2);
+
+    &::before {
+      top: calc((-1 * $curve-height) / 1.5);
+      height: calc(($curve-height / 1.5));
+      border-top-right-radius: calc($curve-radius);
+    }
+
+    &::after {
+      top: calc((-1 * $curve-height) / 1.5);
+      height: calc(($curve-height / 1.5) - 14px);
+      border-top-right-radius: calc($curve-radius);
+      transform: translateY(14px);
+    }
+  }
+
+  @include media-breakpoint-up(lg) {
+    padding-bottom: calc(($curve-height / 1) * 2);
+
+    &::before {
+      top: calc((-1 * $curve-height) / 1);
+      height: $curve-height;
+      border-top-right-radius: $curve-radius;
+    }
+
+    &::after {
+      top: calc((-1 * $curve-height) / 1);
+      height: $curve-height - 14px;
+      border-top-right-radius: $curve-radius;
+      transform: translateY(14px);
+    }
+  }
+}
+
+.sectionImageClipYellowLeft {
+  $curve-height: 160px;
+  $curve-radius: 160px;
+
+  background-color: $white;
+  position: relative;
+  margin-top: $curve-height;
+
+  @include media-breakpoint-up(xs) {
+    border-top-left-radius: calc($curve-radius / 3);
+  }
+
+  @include media-breakpoint-up(md) {
+    border-top-left-radius: calc($curve-radius / 1.5);
+  }
+
+  @include media-breakpoint-up(lg) {
+    border-top-left-radius: $curve-radius;
+  }
+
+  &::before {
+    content: '';
+    background-color: $bright-yellow-60;
+    width: 100%;
+    position: absolute;
+    top: -24px;
+    z-index: -1;
+  }
+
+  @include media-breakpoint-up(xs) {
+    &::before {
+      height: calc(($curve-height / 2.5));
+      border-top-left-radius: calc($curve-radius * 2);
+      top: -14px;
+    }
+  }
+
+  @include media-breakpoint-up(md) {
+    &::before {
+      height: calc(($curve-height / 1.5));
+      border-top-left-radius: calc($curve-radius);
+      top: -14px;
+    }
+  }
+
+  @include media-breakpoint-up(lg) {
+    &::before {
+      height: $curve-height;
+      border-top-left-radius: $curve-radius;
+    }
+  }
+}
+
+.ReactModal__Overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.45) !important;
+}
+
+.container,
+.container-fluid {
+  padding-right: calc($container-padding * .5);
+  padding-left: calc($container-padding * .5);
+}

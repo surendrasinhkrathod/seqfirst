@@ -1,0 +1,65 @@
+/* Primary Brand Extended */
+$bright-yellow: #FBAD18;
+$bright-yellow-80: #FCBE46;
+$bright-yellow-60: #FDCE74;
+$bright-yellow-30: #FEE6BA;
+$deep-teal: #03485E;
+$blue-ivy-dark: #087D98;
+$blue-ivy: #219DBA;
+$blue-ivy-disabled: #B1DDE7;
+$blue-ivy-10: #E9F5F8;
+$blue-ivy-20: #D3EBF1;
+$blue-ivy-50: #90CEDD;
+$blue-ivy-80: #4DB1C8;
+$blue-ivy-hover: #F6FBFC;
+$blue-ivy-bg: #F5FDFF;
+
+/* Neutral */
+$gray-text: #273135;
+$gray-text-light: #64727D;
+$gray-input: #829094;
+$gray-disabled: #C7CED1;
+$gray-keyline: #DEE3E5;
+$gray-bg: #F5F5F5;
+$gray-icon: #DADADA;
+$white: #FFFFFF;
+
+/* System */
+$error: #DE1742;
+$error-bg: #FFECF0;
+
+/* Font Family */
+$anuphan: "Anuphan", sans-serif;
+
+/* Font Weights */
+$font-weight-light: 300;
+$font-weight-normal: 400;
+$font-weight-semibold: 600;
+
+/* Font Sizes */
+$title-hero: 64px;
+$title-hero-line-height: 1.13;
+$title-page: 40px;
+$title-page-line-height: 1.2;
+
+/* Bootstrap Grid Breakpoints */
+$grid-breakpoints: (
+  xs: 0,
+  sm: 576px,
+  md: 768px,
+  lg: 992px,
+  xl: 1200px,
+  xxl: 1400px
+);
+
+$header-nav-height: 97px;
+$footer-nav-height: 315px;
+$footer-nav-height-lg: 277px;
+
+$header-enroll-nav-height: 71px;
+$footer-enroll-nav-height: 120px;
+$footer-enroll-nav-height-mobile: 80px;
+
+$media-border-radius: 12px;
+
+$container-padding: 2.5rem;

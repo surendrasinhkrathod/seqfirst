@@ -1,0 +1,18 @@
+@import "_variables";
+@import "~bootstrap/scss/mixins";
+
+.disclaimer {
+  margin-bottom: 80px;
+
+  @include media-breakpoint-up(md) {
+    margin-bottom: 106px;
+  }
+
+  @include media-breakpoint-up(lg) {
+    margin-bottom: 160px;
+  }
+
+  h3 {
+    color: $gray-text;
+  }
+}

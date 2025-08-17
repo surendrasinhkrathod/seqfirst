@@ -1,0 +1,74 @@
+@import "_variables.scss";
+@import "~bootstrap/scss/mixins";
+
+.programs {
+  position: relative;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  height: 1060px;
+  background-color: $blue-ivy-10;
+
+  @include media-breakpoint-down(lg) {
+    height: 800px;
+    background-image: none !important;
+  }
+}
+
+.programsWrap {
+  position: absolute;
+  height: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: column;
+  justify-content: center;
+  gap: 32px;
+  top: 56%;
+
+  @include media-breakpoint-up(xs) {
+    left: 50%;
+    transform: translate(-50%, calc( -50% - 80px));
+  }
+
+  @include media-breakpoint-up(md) {
+    top: 53%;
+  }
+
+  @include media-breakpoint-up(lg) {
+    left: 60%;
+    top: 50%;
+    transform: translate(0, calc( -50% - 80px));
+  }
+}
+
+.programsTile {
+  display: flex;
+  align-items: center;
+  flex: 270px 0;
+  height: 272px;
+  width: 272px;
+  background-color: white;
+  border-radius: 16px;
+  text-align: center;
+  box-shadow: 0px 1px 3px 0px rgba(0, 0, 0, 0.22);
+
+  p {
+    color: $blue-ivy-dark;
+  }
+
+  a {
+    padding: 10px;
+
+    svg path {
+      fill: $white;
+    }
+  }
+}
+
+.programsTileContent {
+  width: 100%;
+}
+
+.programTileIcon {
+  margin-bottom: 10px;
+}
