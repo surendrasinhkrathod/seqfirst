@@ -1,8 +1,9 @@
-name: Build & Deploy Next.js to Azure Web App (Linux)
+name: Deploy Next.js to Azure Web App
 
 on:
   push:
-    branches: [ "main" ]
+    branches:
+      - master
   workflow_dispatch:
 
 jobs:
@@ -10,42 +11,23 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      # 1. Checkout full repo
-      - name: Checkout
-        uses: actions/checkout@v4
+    - name: Checkout code
+      uses: actions/checkout@v4
 
-      # 2. Setup Node
-      - name: Setup Node
-        uses: actions/setup-node@v4
-        with:
-          node-version: '20'
-          cache: 'yarn' # Change to 'yarn' if using yarn.lock
+    - name: Set up Node.js
+      uses: actions/setup-node@v3
+      with:
+        node-version: '20.x'
 
-      # 3. Install dependencies
-      - name: Install deps
-        run: yarn install --frozen-lockfile # Use 'yarn install --frozen-lockfile' if using Yarn
+    - name: Install dependencies and build
+      run: |
+        npm install
+        npm run build
 
-      # 4. Build Next.js with standalone output
-      - name: Build Next.js
-        run: npm run build
-        env:
-          NEXT_OUTPUT: standalone # Optional: Add to next.config.js if not set
-
-      # 5. Package only built output
-      - name: Package deployment files
-        run: |
-          mv .next/standalone .deploy
-          mv .next/static .deploy/static
-          mv public .deploy/public
-          cd .deploy
-          zip -r ../deploy.zip .
-
-      # 6. Deploy to Azure Web App
-      - name: Deploy to Azure Web App
-        uses: azure/webapps-deploy@v3
-        with:
-          app-name: 'seqfirstweb'
-          publish-profile: ${{ secrets.AZURE_WEBAPP_PUBLISH_PROFILE }}
-          package: 'deploy.zip'
-        env:
-          SCM_DO_BUILD_DURING_DEPLOYMENT: 'false' # Disable server-side build
+    - name: Deploy to Azure Web App
+      uses: azure/webapps-deploy@v2
+      with:
+        app-name: seqfirstweb
+        slot-name: Production
+        publish-profile: ${{ secrets.AZURE_WEBAPP_PUBLISH_PROFILE }}
+        package: .
