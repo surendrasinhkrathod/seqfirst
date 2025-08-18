@@ -10,39 +10,42 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
+      # 1. Checkout full repo
       - name: Checkout
         uses: actions/checkout@v4
 
+      # 2. Setup Node
       - name: Setup Node
         uses: actions/setup-node@v4
         with:
           node-version: '20'
-          cache: 'npm'
+          cache: 'npm' # Change to 'yarn' if using yarn.lock
 
-      - name: Install deps (CI)
-        run: npm ci
+      # 3. Install dependencies
+      - name: Install deps
+        run: npm ci # Use 'yarn install --frozen-lockfile' if using Yarn
 
+      # 4. Build Next.js with standalone output
       - name: Build Next.js
         run: npm run build
+        env:
+          NEXT_OUTPUT: standalone # Optional: Add to next.config.js if not set
 
-      # Optional but recommended: remove devDependencies to slim the deploy
-      - name: Prune to production deps
-        run: npm prune --production
-
-      # Prepare a minimal runtime folder for deployment
-      - name: Create deployable folder
+      # 5. Package only built output
+      - name: Package deployment files
         run: |
-          mkdir -p release
-          cp -r .next release/.next
-          cp -r public release/public 2>/dev/null || true
-          cp package.json package-lock.json release/
-          cp next.config.js release/ 2>/dev/null || true
-          cp -r node_modules release/node_modules
+          mv .next/standalone .deploy
+          mv .next/static .deploy/static
+          mv public .deploy/public
+          cd .deploy
+          zip -r ../deploy.zip .
 
-      # Deploy the 'release' folder to Azure Web App
+      # 6. Deploy to Azure Web App
       - name: Deploy to Azure Web App
         uses: azure/webapps-deploy@v3
         with:
           app-name: 'seqfirstweb'
           publish-profile: ${{ secrets.AZURE_WEBAPP_PUBLISH_PROFILE }}
-          package: './release'
+          package: 'deploy.zip'
+        env:
+          SCM_DO_BUILD_DURING_DEPLOYMENT: 'false' # Disable server-side build
