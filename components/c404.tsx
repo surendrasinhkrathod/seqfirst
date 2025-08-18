@@ -3,10 +3,6 @@ import Link from 'next/link'
 
 import IconHome from "../images/icon-home.svg";
 
-
-
-
-
 // Component 404 body message
 const C404 = () => {
   return (
