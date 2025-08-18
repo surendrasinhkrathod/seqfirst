@@ -1,44 +1,39 @@
-name: Deploy Next.js to Azure Web App
+name: Build and Deploy Next.js to Azure Web App
 
 on:
   push:
-    branches:
-      - master
-  workflow_dispatch:
+    branches: ["main"] # Change to your default branch if different (e.g., "master")
+  workflow_dispatch: # Allows manual triggers
+
+env:
+  AZURE_WEBAPP_NAME: seqfirstweb-fgdkfxb0engxa4ag # Your Azure Web App name
 
 jobs:
-  build-and-deploy:
+  build:
     runs-on: ubuntu-latest
 
     steps:
-    - name: Checkout code
-      uses: actions/checkout@v4
+      - uses: actions/checkout@v4
 
-    - name: Set up Node.js
-      uses: actions/setup-node@v3
-      with:
-        node-version: '20.x'
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: "20.x" # Use "18.x" if your app requires Node 18
 
-    - name: Install dependencies
-      run: npm install  # Removed --production to include dev dependencies
+      - name: Install dependencies and build
+        run: |
+          npm install
+          npm run build
 
-    - name: Build Next.js app
-      run: npm run build
+      - name: Prepare standalone bundle for deployment
+        run: |
+          mkdir -p .next/standalone/.next
+          mv .next/static .next/standalone/.next/static
+          if [ -d "public" ]; then mv public .next/standalone/public; fi # Moves public folder if it exists
 
-    - name: Prepare deployment package
-      run: |
-        mkdir -p deploy
-        cp -r .next/standalone/* deploy/
-        mkdir -p deploy/.next/static
-        cp -r .next/static/* deploy/.next/static/
-        cp -r public/* deploy/public/ || true  # Copy public folder if it exists
-        cd deploy
-        zip -r ../deploy.zip .
-        cd ..
-
-    - name: Deploy to Azure Web App
-      uses: azure/webapps-deploy@v2
-      with:
-        app-name: seqfirstweb
-        publish-profile: ${{ secrets.AZURE_WEBAPP_PUBLISH_PROFILE }}
-        package: deploy.zip
+      - name: Deploy to Azure Web App
+        uses: azure/webapps-deploy@v3
+        with:
+          app-name: 'seqfirstweb'
+          publish-profile: ${{ secrets.AZURE_WEBAPP_PUBLISH_PROFILE }}
+          package: .next/standalone # Deploys the standalone bundle
