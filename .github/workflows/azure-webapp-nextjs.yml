@@ -19,11 +19,11 @@ jobs:
         uses: actions/setup-node@v4
         with:
           node-version: '20'
-          cache: 'npm' # Change to 'yarn' if using yarn.lock
+          cache: 'yarn' # Change to 'yarn' if using yarn.lock
 
       # 3. Install dependencies
       - name: Install deps
-        run: npm ci # Use 'yarn install --frozen-lockfile' if using Yarn
+        run: yarn install --frozen-lockfile # Use 'yarn install --frozen-lockfile' if using Yarn
 
       # 4. Build Next.js with standalone output
       - name: Build Next.js
